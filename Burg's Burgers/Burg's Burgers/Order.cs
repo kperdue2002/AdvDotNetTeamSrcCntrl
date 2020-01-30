@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Burg_s_Burgers
 {
-    class Order
+    public class Order
     {
         [Key]
         public int OrderID { get; set; }
@@ -23,14 +23,26 @@ namespace Burg_s_Burgers
         [StringLength(50)]
         [Column(TypeName = "varchar")]
         public string LastName { get; set; }
+        
+        // Address Section
+        
+        [Required]
+        public string Address { get; set; }
 
         [Required]
-        public CivicAddress DeliveryAddress { get; set; }
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public int ZipCode { get; set; }
 
         [Phone]
         public string PhoneNumber { get; set; }
 
         [Required]
+        [Range(1, 250)]
         public byte Quantity { get; set; }
 
         [Required]
