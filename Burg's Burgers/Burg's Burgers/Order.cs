@@ -29,18 +29,20 @@ namespace Burg_s_Burgers
         [Required(AllowEmptyStrings = false)]
         public string Address { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         [RegularExpression(@"^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$",
          ErrorMessage = "The input for the city is not valid.")]
         public string City { get; set; }
 
         [RegularExpression(@"^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$",
          ErrorMessage = "The input for a state needs to be the capitalized abbreviation.")]
+        [Column(TypeName = "varchar")]
         public string State { get; set; }
 
-        [Required()]
-        [RegularExpression(@"^[a-zA-Z''-'\s]{5}$",
+        [Required(AllowEmptyStrings = false)]
+        [RegularExpression(@"^\d{5}$",
          ErrorMessage = "The zip code must be entirely made up of exactly 5 digits.")]
+        [Column(TypeName = "varchar")]
         public string ZipCode { get; set; }
 
         // End of Address Section
@@ -53,7 +55,7 @@ namespace Burg_s_Burgers
         public byte Quantity { get; set; }
 
         [StringLength(512)]
-        [Column(TypeName = "varchar")]
+        [Column(TypeName = "nvarchar")]
         public string SpecialDirections { get; set; }
 
         [Required]
