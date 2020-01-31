@@ -14,29 +14,36 @@ namespace Burg_s_Burgers
         [Key]
         public int OrderID { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         [StringLength(50)]
         [Column(TypeName = "varchar")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         [StringLength(50)]
         [Column(TypeName = "varchar")]
         public string LastName { get; set; }
         
-        // Address Section
+        // Start of Address Section
         
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string Address { get; set; }
 
         [Required]
+        [RegularExpression(@"^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$",
+         ErrorMessage = "The input for the city is not valid.")]
         public string City { get; set; }
 
-        [Required]
+        [RegularExpression(@"^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$",
+         ErrorMessage = "The input for a state needs to be the capitalized abbreviation.")]
         public string State { get; set; }
 
-        [Required]
-        public int ZipCode { get; set; }
+        [Required()]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{5}$",
+         ErrorMessage = "The zip code must be entirely made up of exactly 5 digits.")]
+        public string ZipCode { get; set; }
+
+        // End of Address Section
 
         [Phone]
         public string PhoneNumber { get; set; }
@@ -45,7 +52,6 @@ namespace Burg_s_Burgers
         [Range(1, 250)]
         public byte Quantity { get; set; }
 
-        [Required]
         [StringLength(512)]
         [Column(TypeName = "varchar")]
         public string SpecialDirections { get; set; }
