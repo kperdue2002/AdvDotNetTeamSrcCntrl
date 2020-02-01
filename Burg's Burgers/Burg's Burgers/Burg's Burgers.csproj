@@ -81,6 +81,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderContext.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\202001312229117_Order.resx">
