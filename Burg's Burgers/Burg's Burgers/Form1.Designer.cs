@@ -35,8 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
+            this.lblLogo = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.lblOrder = new System.Windows.Forms.Label();
             this.gBoxMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnMenu1)).BeginInit();
+            this.gBoxOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +77,9 @@
             // 
             // gBoxOrder
             // 
+            this.gBoxOrder.Controls.Add(this.lblOrder);
+            this.gBoxOrder.Controls.Add(this.btnOrder);
+            this.gBoxOrder.Controls.Add(this.lblPrice);
             this.gBoxOrder.Location = new System.Drawing.Point(12, 233);
             this.gBoxOrder.Name = "gBoxOrder";
             this.gBoxOrder.Size = new System.Drawing.Size(415, 223);
@@ -99,18 +107,53 @@
             // pBoxLogo
             // 
             this.pBoxLogo.Image = global::Burg_s_Burgers.Properties.Resources.Borger;
-            this.pBoxLogo.Location = new System.Drawing.Point(227, 68);
+            this.pBoxLogo.Location = new System.Drawing.Point(227, 12);
             this.pBoxLogo.Name = "pBoxLogo";
             this.pBoxLogo.Size = new System.Drawing.Size(200, 101);
             this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBoxLogo.TabIndex = 2;
             this.pBoxLogo.TabStop = false;
             // 
+            // lblLogo
+            // 
+            this.lblLogo.Location = new System.Drawing.Point(230, 124);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(196, 97);
+            this.lblLogo.TabIndex = 3;
+            this.lblLogo.Text = "Description of Burg\'s Burgers\r\nBuy our burgers, bro\r\nthey got meat and cheese";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Location = new System.Drawing.Point(215, 147);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(194, 73);
+            this.lblPrice.TabIndex = 0;
+            this.lblPrice.Text = "Price";
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.Location = new System.Drawing.Point(0, 147);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(209, 70);
+            this.btnOrder.TabIndex = 1;
+            this.btnOrder.Text = "Place Order";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            // 
+            // lblOrder
+            // 
+            this.lblOrder.AutoSize = true;
+            this.lblOrder.Location = new System.Drawing.Point(6, 16);
+            this.lblOrder.Name = "lblOrder";
+            this.lblOrder.Size = new System.Drawing.Size(84, 13);
+            this.lblOrder.TabIndex = 2;
+            this.lblOrder.Text = "Your Order Here";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 468);
+            this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.pBoxLogo);
             this.Controls.Add(this.gBoxOrder);
             this.Controls.Add(this.gBoxMenu);
@@ -119,6 +162,8 @@
             this.gBoxMenu.ResumeLayout(false);
             this.gBoxMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnMenu1)).EndInit();
+            this.gBoxOrder.ResumeLayout(false);
+            this.gBoxOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -133,6 +178,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.PictureBox pBoxLogo;
+        private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.Label lblOrder;
+        private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.Label lblPrice;
     }
 }
 
