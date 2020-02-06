@@ -16,5 +16,10 @@ namespace Burg_s_Burgers
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            await OrderDB.Add(new Order())
+        }
     }
 }
