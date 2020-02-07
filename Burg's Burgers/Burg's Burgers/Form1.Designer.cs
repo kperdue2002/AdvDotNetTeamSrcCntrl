@@ -1,4 +1,4 @@
-﻿namespace Burg_s_Burgers
+namespace Burg_s_Burgers
 {
     partial class Form1
     {
@@ -184,4 +184,3 @@
         private System.Windows.Forms.Label lblPrice;
     }
 }
-
