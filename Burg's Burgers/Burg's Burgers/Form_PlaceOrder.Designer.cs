@@ -126,12 +126,12 @@
             // 
             this.tBoxZip.Location = new System.Drawing.Point(318, 125);
             this.tBoxZip.Name = "tBoxZip";
-            this.tBoxZip.Size = new System.Drawing.Size(120, 20);
+            this.tBoxZip.Size = new System.Drawing.Size(121, 20);
             this.tBoxZip.TabIndex = 16;
             // 
             // btnPlaceOrder
             // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(300, 281);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(301, 281);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(139, 46);
             this.btnPlaceOrder.TabIndex = 15;
@@ -292,7 +292,7 @@
             // 
             this.tBoxCity.Location = new System.Drawing.Point(318, 151);
             this.tBoxCity.Name = "tBoxCity";
-            this.tBoxCity.Size = new System.Drawing.Size(120, 20);
+            this.tBoxCity.Size = new System.Drawing.Size(121, 20);
             this.tBoxCity.TabIndex = 3;
             // 
             // tBoxLname
