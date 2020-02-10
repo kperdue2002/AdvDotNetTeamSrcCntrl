@@ -1,6 +1,6 @@
 namespace Burg_s_Burgers
 {
-    partial class Form1
+    partial class Form_StartUp
     {
         /// <summary>
         /// Required designer variable.
@@ -47,11 +47,13 @@ namespace Burg_s_Burgers
             // 
             // lblLogo
             // 
-            this.lblLogo.Location = new System.Drawing.Point(119, 116);
+            this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.Location = new System.Drawing.Point(121, 116);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(196, 81);
+            this.lblLogo.Size = new System.Drawing.Size(183, 81);
             this.lblLogo.TabIndex = 3;
-            this.lblLogo.Text = "Description of Burg\'s Burgers\r\nBuy our burgers, bro\r\nthey got meat and cheese";
+            this.lblLogo.Text = "\r\nBuy our burgers, bro\r\nthey got meat AND cheese";
+            this.lblLogo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnCreateOrder
             // 
@@ -61,7 +63,7 @@ namespace Burg_s_Burgers
             this.btnCreateOrder.TabIndex = 4;
             this.btnCreateOrder.Text = "Create Order";
             this.btnCreateOrder.UseVisualStyleBackColor = true;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            this.btnCreateOrder.Click += new System.EventHandler(this.BtnCreateOrder_Click);
             // 
             // button2
             // 
@@ -71,7 +73,7 @@ namespace Burg_s_Burgers
             this.button2.TabIndex = 5;
             this.button2.Text = "View Orders";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.BtnShowOrders_Click);
             // 
             // Form1
             // 

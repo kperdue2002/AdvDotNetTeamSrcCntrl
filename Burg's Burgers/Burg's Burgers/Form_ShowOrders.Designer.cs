@@ -1,6 +1,6 @@
 ﻿namespace Burg_s_Burgers
 {
-    partial class Form3
+    partial class Form_ShowOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Form3
+            // Form_ShowOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 450);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "Form_ShowOrders";
+            this.Text = "Show Orders";
             this.ResumeLayout(false);
 
         }

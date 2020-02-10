@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Burg_s_Burgers
 {
-    public partial class Form3 : Form
+    public partial class Form_ShowOrders : Form
     {
-        public Form3()
+        public Form_ShowOrders()
         {
             InitializeComponent();
         }

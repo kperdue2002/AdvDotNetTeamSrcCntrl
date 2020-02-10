@@ -140,23 +140,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="await.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_StartUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_StartUp.Designer.cs">
+      <DependentUpon>Form_StartUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Form_PlaceOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Form_PlaceOrder.Designer.cs">
+      <DependentUpon>Form_PlaceOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Form_ShowOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Form_ShowOrders.Designer.cs">
+      <DependentUpon>Form_ShowOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202001312229117_Order.cs" />
     <Compile Include="Migrations\202001312229117_Order.designer.cs">
@@ -167,14 +167,14 @@
     <Compile Include="OrderDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_StartUp.resx">
+      <DependentUpon>Form_StartUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Form_PlaceOrder.resx">
+      <DependentUpon>Form_PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Form_ShowOrders.resx">
+      <DependentUpon>Form_ShowOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001312229117_Order.resx">
       <DependentUpon>202001312229117_Order.cs</DependentUpon>
