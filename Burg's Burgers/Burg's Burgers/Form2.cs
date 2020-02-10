@@ -16,5 +16,10 @@ namespace Burg_s_Burgers
         {
             InitializeComponent();
         }
+
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
