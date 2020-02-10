@@ -30,7 +30,7 @@ namespace Burg_s_Burgers
             o.PhoneNumber = tBoxPhone.Text;
 
             //BUG - "Unable to cast object of type 'System.Windows.Forms.NumericUpDown' to type 'System.IConvertible'.
-            o.Quantity = Convert.ToByte(numUpDwnBurgers); 
+            o.Quantity = Convert.ToByte(numUpDwnBurgers.Value); 
             o.SpecialDirections = txtBoxInstruct.Text;
             o.DateOfOrder = DateTime.Now;
 
