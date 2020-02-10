@@ -4,3 +4,4 @@ Below is a key for names of Form objects
 - cBox     : Check Box
 - numUpDwn : Numeric Up Down
 - btn      : Button
+- lbl      : Label
