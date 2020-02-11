@@ -42,10 +42,20 @@ namespace Burg_s_Burgers
         public Form_PlaceOrder()
         {
             InitializeComponent();
-            
-            for (int i = 0; i < StateNames.GetLength(0); i++)
-            {
 
+            AddStates();
+        }
+
+        private void AddStates()
+        {
+            for (int i = 0; i < StateNames.GetLength(1); i++)
+            {
+                StateItem stateItem = new StateItem
+                {
+                    StateName = StateNames[0, i],
+                    StateAbbreviation = StateNames[1, i]
+                };
+                cBoxState.Items.Add(stateItem);
             }
         }
 
@@ -57,7 +67,7 @@ namespace Burg_s_Burgers
                 LastName = tBoxLname.Text,
                 Address = tBoxAddress.Text,
                 City = tBoxCity.Text,
-                State = cBoxState.Text,
+                State = (cBoxState.SelectedItem as StateItem).StateAbbreviation,
                 ZipCode = tBoxZip.Text,
                 PhoneNumber = tBoxPhone.Text,
                 Quantity = Convert.ToByte(numUpDwnBurgers.Value),
@@ -65,7 +75,8 @@ namespace Burg_s_Burgers
                 DateOfOrder = DateTime.Now
             };
 
-
+            //Really gotta get this thing working
+            //OrderDB.Add(newOrder);
 
             MessageBox.Show("Order Added");
         }

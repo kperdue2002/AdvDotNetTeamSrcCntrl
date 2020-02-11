@@ -8,12 +8,12 @@ namespace Burg_s_Burgers
 {
     public class StateItem
     {
-        public string FullName { get; set; }
-        public string Abbreviation { get; set; }
+        public string StateName { get; set; }
+        public string StateAbbreviation { get; set; }
 
         public override string ToString()
         {
-            return FullName;
+            return StateName;
         }
     }
 }
