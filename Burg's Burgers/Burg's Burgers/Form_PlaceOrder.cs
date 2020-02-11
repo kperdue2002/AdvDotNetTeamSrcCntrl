@@ -12,6 +12,16 @@ namespace Burg_s_Burgers
 {
     public partial class Form_PlaceOrder : Form
     {
+        public TextBox TB_FIRST_NAME;
+        public TextBox TB_LAST_NAME;
+        public TextBox TB_ADDRESS;
+        public TextBox TB_CITY;
+        public ComboBox CB_STATE;
+        public TextBox TB_ZIP_CODE;
+        public TextBox TB_PHONE_NUMBER;
+        public NumericUpDown NUD_QUANTITY;
+        public TextBox TB_SPECIAL_DIRECTIONS;
+
         private readonly string[,] StateNames = new string[,]
         {
             {
@@ -43,6 +53,16 @@ namespace Burg_s_Burgers
         {
             InitializeComponent();
 
+            TB_FIRST_NAME = tBoxFname;
+            TB_LAST_NAME = tBoxLname;
+            TB_ADDRESS = tBoxAddress;
+            TB_CITY = tBoxCity;
+            CB_STATE = cBoxState;
+            TB_ZIP_CODE = tBoxZip;
+            TB_PHONE_NUMBER = tBoxPhone;
+            NUD_QUANTITY = numUpDwnBurgers;
+            TB_SPECIAL_DIRECTIONS = txtBoxInstruct;
+
             AddStates();
         }
 
@@ -59,24 +79,9 @@ namespace Burg_s_Burgers
             }
         }
 
-        private void BtnPlaceOrder_Click(object sender, EventArgs e)
+        private async void BtnPlaceOrder_Click(object sender, EventArgs e)
         {
-            Order newOrder = new Order
-            {
-                FirstName = tBoxFname.Text,
-                LastName = tBoxLname.Text,
-                Address = tBoxAddress.Text,
-                City = tBoxCity.Text,
-                State = (cBoxState.SelectedItem as StateItem).StateAbbreviation,
-                ZipCode = tBoxZip.Text,
-                PhoneNumber = tBoxPhone.Text,
-                Quantity = Convert.ToByte(numUpDwnBurgers.Value),
-                SpecialDirections = txtBoxInstruct.Text,
-                DateOfOrder = DateTime.Now
-            };
-
-            //Really gotta get this thing working
-            //OrderDB.Add(newOrder);
+            await OrderController.Add(this);
 
             MessageBox.Show("Order Added");
         }
