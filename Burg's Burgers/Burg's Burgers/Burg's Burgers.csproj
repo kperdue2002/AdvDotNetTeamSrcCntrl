@@ -172,6 +172,14 @@
     <Compile Include="Migrations\202002130102320_Update-Order.designer.cs">
       <DependentUpon>202002130102320_Update-Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002132027422_Update-StringLimits.cs" />
+    <Compile Include="Migrations\202002132027422_Update-StringLimits.designer.cs">
+      <DependentUpon>202002132027422_Update-StringLimits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002132035108_State-Required.cs" />
+    <Compile Include="Migrations\202002132035108_State-Required.designer.cs">
+      <DependentUpon>202002132035108_State-Required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="StateItem.cs" />
@@ -209,6 +217,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002130102320_Update-Order.resx">
       <DependentUpon>202002130102320_Update-Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002132027422_Update-StringLimits.resx">
+      <DependentUpon>202002132027422_Update-StringLimits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002132035108_State-Required.resx">
+      <DependentUpon>202002132035108_State-Required.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
