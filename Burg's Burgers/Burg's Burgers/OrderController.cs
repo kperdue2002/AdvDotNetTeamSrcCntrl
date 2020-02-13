@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,9 @@ namespace Burg_s_Burgers
     {
         private static OrderContext context;
 
-        public OrderController(OrderContext _context)
+        static OrderController()
         {
-            context = _context;
+            context = new OrderContext();
         }
 
         public static async Task Add(Form_PlaceOrder addForm)

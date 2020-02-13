@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,7 +79,7 @@ namespace Burg_s_Burgers
         private static async Task<Order> OrderAction(
             Order o, OrderContext orderContext, EntityState state)
         {
-            await orderContext.AddAsync(o);
+            orderContext.Orders.Add(o);
             orderContext.Entry(o).State = state;
             await orderContext.SaveChangesAsync();
             return o;

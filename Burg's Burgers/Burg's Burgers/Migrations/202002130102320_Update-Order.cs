@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Order : DbMigration
+    public partial class UpdateOrder : DbMigration
     {
         public override void Up()
         {
