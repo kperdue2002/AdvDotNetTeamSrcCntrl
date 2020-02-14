@@ -42,7 +42,7 @@ namespace Burg_s_Burgers
 
         [Required]
         [RegularExpression(@"^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$",
-         ErrorMessage = "The input for a state needs to be the capitalized abbreviation.")]
+         ErrorMessage = "Please select a state.")]
         [Column(TypeName = "varchar")]
         [StringLength(2, ErrorMessage = "The state input is not abbreviated.\n" +
                                         "Please file this as an error to the developers.")]

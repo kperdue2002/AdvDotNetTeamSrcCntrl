@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,11 @@ namespace Burg_s_Burgers
 {
     public class OrderController
     {
-        private static OrderContext context;
+        private static OrderContext orderContext;
 
         static OrderController()
         {
-            context = new OrderContext();
+            orderContext = new OrderContext();
         }
 
         public static async Task Add(Form_PlaceOrder addForm)
@@ -25,7 +26,8 @@ namespace Burg_s_Burgers
                 LastName = addForm.TB_LAST_NAME.Text,
                 Address = addForm.TB_ADDRESS.Text,
                 City = addForm.TB_CITY.Text,
-                State = (addForm.CB_STATE.SelectedItem as StateItem).StateAbbreviation,
+                State = addForm.CB_STATE.SelectedItem is StateItem state ?
+                        state.StateAbbreviation : "ER",
                 ZipCode = addForm.TB_ZIP_CODE.Text,
                 PhoneNumber = addForm.TB_PHONE_NUMBER.Text,
                 Quantity = Convert.ToByte(addForm.NUD_QUANTITY.Value),
@@ -33,7 +35,20 @@ namespace Burg_s_Burgers
                 DateOfOrder = DateTime.Now
             };
 
-            await OrderDB.Add(newOrder, context);
+            ValidationContext validationContext = new ValidationContext(newOrder);
+            IList<ValidationResult> errors = new List<ValidationResult>();
+
+            if (!Validator.TryValidateObject(newOrder, validationContext, errors, true))
+            {
+                foreach (ValidationResult result in errors)
+                    MessageBox.Show(result.ErrorMessage);
+            }
+            else
+            {
+                MessageBox.Show("Order Added");
+            }
+
+            await OrderDB.Add(newOrder, orderContext);
         }
     }
 }

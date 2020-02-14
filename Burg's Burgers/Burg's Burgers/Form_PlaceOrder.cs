@@ -82,8 +82,6 @@ namespace Burg_s_Burgers
         private async void BtnPlaceOrder_Click(object sender, EventArgs e)
         {
             await OrderController.Add(this);
-
-            MessageBox.Show("Order Added");
         }
     }
 }

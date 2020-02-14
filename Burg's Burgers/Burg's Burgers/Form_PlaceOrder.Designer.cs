@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblStarZipcode = new System.Windows.Forms.Label();
+            this.lblStarBurgNum = new System.Windows.Forms.Label();
+            this.lblStarState = new System.Windows.Forms.Label();
+            this.lblStarCity = new System.Windows.Forms.Label();
+            this.lblStarAddress = new System.Windows.Forms.Label();
+            this.lblStarLName = new System.Windows.Forms.Label();
+            this.lblStarFName = new System.Windows.Forms.Label();
+            this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblInstruc = new System.Windows.Forms.Label();
             this.txtBoxInstruct = new System.Windows.Forms.TextBox();
             this.lblZipcode = new System.Windows.Forms.Label();
@@ -48,18 +57,9 @@
             this.tBoxCity = new System.Windows.Forms.TextBox();
             this.tBoxLname = new System.Windows.Forms.TextBox();
             this.tBoxFname = new System.Windows.Forms.TextBox();
-            this.pBoxLogo = new System.Windows.Forms.PictureBox();
-            this.lblStarZipcode = new System.Windows.Forms.Label();
-            this.lblStarBurgNum = new System.Windows.Forms.Label();
-            this.lblStarState = new System.Windows.Forms.Label();
-            this.lblStarCity = new System.Windows.Forms.Label();
-            this.lblStarAddress = new System.Windows.Forms.Label();
-            this.lblStarLName = new System.Windows.Forms.Label();
-            this.lblStarFName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnBurgers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnBurgers)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,14 +99,98 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Place Order";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 313);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "*Required";
+            // 
+            // lblStarZipcode
+            // 
+            this.lblStarZipcode.AutoSize = true;
+            this.lblStarZipcode.Location = new System.Drawing.Point(430, 129);
+            this.lblStarZipcode.Name = "lblStarZipcode";
+            this.lblStarZipcode.Size = new System.Drawing.Size(11, 13);
+            this.lblStarZipcode.TabIndex = 27;
+            this.lblStarZipcode.Text = "*";
+            this.lblStarZipcode.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblStarBurgNum
+            // 
+            this.lblStarBurgNum.AutoSize = true;
+            this.lblStarBurgNum.Location = new System.Drawing.Point(430, 23);
+            this.lblStarBurgNum.Name = "lblStarBurgNum";
+            this.lblStarBurgNum.Size = new System.Drawing.Size(11, 13);
+            this.lblStarBurgNum.TabIndex = 26;
+            this.lblStarBurgNum.Text = "*";
+            // 
+            // lblStarState
+            // 
+            this.lblStarState.AutoSize = true;
+            this.lblStarState.Location = new System.Drawing.Point(430, 180);
+            this.lblStarState.Name = "lblStarState";
+            this.lblStarState.Size = new System.Drawing.Size(11, 13);
+            this.lblStarState.TabIndex = 25;
+            this.lblStarState.Text = "*";
+            // 
+            // lblStarCity
+            // 
+            this.lblStarCity.AutoSize = true;
+            this.lblStarCity.Location = new System.Drawing.Point(430, 155);
+            this.lblStarCity.Name = "lblStarCity";
+            this.lblStarCity.Size = new System.Drawing.Size(11, 13);
+            this.lblStarCity.TabIndex = 24;
+            this.lblStarCity.Text = "*";
+            // 
+            // lblStarAddress
+            // 
+            this.lblStarAddress.AutoSize = true;
+            this.lblStarAddress.Location = new System.Drawing.Point(430, 103);
+            this.lblStarAddress.Name = "lblStarAddress";
+            this.lblStarAddress.Size = new System.Drawing.Size(11, 13);
+            this.lblStarAddress.TabIndex = 23;
+            this.lblStarAddress.Text = "*";
+            // 
+            // lblStarLName
+            // 
+            this.lblStarLName.AutoSize = true;
+            this.lblStarLName.Location = new System.Drawing.Point(430, 77);
+            this.lblStarLName.Name = "lblStarLName";
+            this.lblStarLName.Size = new System.Drawing.Size(11, 13);
+            this.lblStarLName.TabIndex = 22;
+            this.lblStarLName.Text = "*";
+            // 
+            // lblStarFName
+            // 
+            this.lblStarFName.AutoSize = true;
+            this.lblStarFName.Location = new System.Drawing.Point(430, 50);
+            this.lblStarFName.Name = "lblStarFName";
+            this.lblStarFName.Size = new System.Drawing.Size(11, 13);
+            this.lblStarFName.TabIndex = 21;
+            this.lblStarFName.Text = "*";
+            // 
+            // pBoxLogo
+            // 
+            this.pBoxLogo.Image = global::Burg_s_Burgers.Properties.Resources.Borger;
+            this.pBoxLogo.Location = new System.Drawing.Point(27, 76);
+            this.pBoxLogo.Name = "pBoxLogo";
+            this.pBoxLogo.Size = new System.Drawing.Size(200, 101);
+            this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoxLogo.TabIndex = 20;
+            this.pBoxLogo.TabStop = false;
+            // 
             // lblInstruc
             // 
             this.lblInstruc.AutoSize = true;
-            this.lblInstruc.Location = new System.Drawing.Point(142, 244);
+            this.lblInstruc.Location = new System.Drawing.Point(144, 244);
             this.lblInstruc.Name = "lblInstruc";
             this.lblInstruc.Size = new System.Drawing.Size(99, 13);
             this.lblInstruc.TabIndex = 19;
             this.lblInstruc.Text = "Special Instructions";
+            this.lblInstruc.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtBoxInstruct
             // 
@@ -121,12 +205,12 @@
             // lblZipcode
             // 
             this.lblZipcode.AutoSize = true;
-            this.lblZipcode.Location = new System.Drawing.Point(250, 128);
+            this.lblZipcode.Location = new System.Drawing.Point(253, 128);
             this.lblZipcode.Name = "lblZipcode";
             this.lblZipcode.Size = new System.Drawing.Size(52, 13);
             this.lblZipcode.TabIndex = 17;
             this.lblZipcode.Text = "ZIP Code";
-            this.lblZipcode.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblZipcode.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tBoxZip
             // 
@@ -153,6 +237,7 @@
             this.lblBurger.Size = new System.Drawing.Size(183, 13);
             this.lblBurger.TabIndex = 14;
             this.lblBurger.Text = "Select the number of Burgers to order";
+            this.lblBurger.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblPhone
             // 
@@ -162,6 +247,7 @@
             this.lblPhone.Size = new System.Drawing.Size(78, 13);
             this.lblPhone.TabIndex = 13;
             this.lblPhone.Text = "Phone Number";
+            this.lblPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblState
             // 
@@ -171,33 +257,37 @@
             this.lblState.Size = new System.Drawing.Size(32, 13);
             this.lblState.TabIndex = 12;
             this.lblState.Text = "State";
+            this.lblState.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(278, 154);
+            this.lblCity.Location = new System.Drawing.Point(281, 154);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(24, 13);
             this.lblCity.TabIndex = 11;
             this.lblCity.Text = "City";
+            this.lblCity.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(257, 102);
+            this.lblAddress.Location = new System.Drawing.Point(260, 102);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(45, 13);
             this.lblAddress.TabIndex = 10;
             this.lblAddress.Text = "Address";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblLname
             // 
             this.lblLname.AutoSize = true;
-            this.lblLname.Location = new System.Drawing.Point(245, 76);
+            this.lblLname.Location = new System.Drawing.Point(247, 76);
             this.lblLname.Name = "lblLname";
             this.lblLname.Size = new System.Drawing.Size(58, 13);
             this.lblLname.TabIndex = 9;
             this.lblLname.Text = "Last Name";
+            this.lblLname.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblFname
             // 
@@ -207,6 +297,7 @@
             this.lblFname.Size = new System.Drawing.Size(57, 13);
             this.lblFname.TabIndex = 8;
             this.lblFname.Text = "First Name";
+            this.lblFname.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // numUpDwnBurgers
             // 
@@ -278,89 +369,6 @@
             this.tBoxFname.Size = new System.Drawing.Size(121, 20);
             this.tBoxFname.TabIndex = 0;
             // 
-            // pBoxLogo
-            // 
-            this.pBoxLogo.Image = global::Burg_s_Burgers.Properties.Resources.Borger;
-            this.pBoxLogo.Location = new System.Drawing.Point(27, 76);
-            this.pBoxLogo.Name = "pBoxLogo";
-            this.pBoxLogo.Size = new System.Drawing.Size(200, 101);
-            this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoxLogo.TabIndex = 20;
-            this.pBoxLogo.TabStop = false;
-            // 
-            // lblStarZipcode
-            // 
-            this.lblStarZipcode.AutoSize = true;
-            this.lblStarZipcode.Location = new System.Drawing.Point(430, 129);
-            this.lblStarZipcode.Name = "lblStarZipcode";
-            this.lblStarZipcode.Size = new System.Drawing.Size(11, 13);
-            this.lblStarZipcode.TabIndex = 27;
-            this.lblStarZipcode.Text = "*";
-            this.lblStarZipcode.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblStarBurgNum
-            // 
-            this.lblStarBurgNum.AutoSize = true;
-            this.lblStarBurgNum.Location = new System.Drawing.Point(430, 23);
-            this.lblStarBurgNum.Name = "lblStarBurgNum";
-            this.lblStarBurgNum.Size = new System.Drawing.Size(11, 13);
-            this.lblStarBurgNum.TabIndex = 26;
-            this.lblStarBurgNum.Text = "*";
-            // 
-            // lblStarState
-            // 
-            this.lblStarState.AutoSize = true;
-            this.lblStarState.Location = new System.Drawing.Point(430, 180);
-            this.lblStarState.Name = "lblStarState";
-            this.lblStarState.Size = new System.Drawing.Size(11, 13);
-            this.lblStarState.TabIndex = 25;
-            this.lblStarState.Text = "*";
-            // 
-            // lblStarCity
-            // 
-            this.lblStarCity.AutoSize = true;
-            this.lblStarCity.Location = new System.Drawing.Point(430, 155);
-            this.lblStarCity.Name = "lblStarCity";
-            this.lblStarCity.Size = new System.Drawing.Size(11, 13);
-            this.lblStarCity.TabIndex = 24;
-            this.lblStarCity.Text = "*";
-            // 
-            // lblStarAddress
-            // 
-            this.lblStarAddress.AutoSize = true;
-            this.lblStarAddress.Location = new System.Drawing.Point(430, 103);
-            this.lblStarAddress.Name = "lblStarAddress";
-            this.lblStarAddress.Size = new System.Drawing.Size(11, 13);
-            this.lblStarAddress.TabIndex = 23;
-            this.lblStarAddress.Text = "*";
-            // 
-            // lblStarLName
-            // 
-            this.lblStarLName.AutoSize = true;
-            this.lblStarLName.Location = new System.Drawing.Point(430, 77);
-            this.lblStarLName.Name = "lblStarLName";
-            this.lblStarLName.Size = new System.Drawing.Size(11, 13);
-            this.lblStarLName.TabIndex = 22;
-            this.lblStarLName.Text = "*";
-            // 
-            // lblStarFName
-            // 
-            this.lblStarFName.AutoSize = true;
-            this.lblStarFName.Location = new System.Drawing.Point(430, 50);
-            this.lblStarFName.Name = "lblStarFName";
-            this.lblStarFName.Size = new System.Drawing.Size(11, 13);
-            this.lblStarFName.TabIndex = 21;
-            this.lblStarFName.Text = "*";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 316);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "*Required";
-            // 
             // Form_PlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,8 +379,8 @@
             this.Text = "Place Order";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnBurgers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnBurgers)).EndInit();
             this.ResumeLayout(false);
 
         }
