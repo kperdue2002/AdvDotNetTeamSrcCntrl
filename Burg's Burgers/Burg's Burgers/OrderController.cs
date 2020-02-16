@@ -38,17 +38,21 @@ namespace Burg_s_Burgers
             ValidationContext validationContext = new ValidationContext(newOrder);
             IList<ValidationResult> errors = new List<ValidationResult>();
 
+            string errMsg = "VALIDATION ERROR:";
+
             if (!Validator.TryValidateObject(newOrder, validationContext, errors, true))
             {
                 foreach (ValidationResult result in errors)
-                    MessageBox.Show(result.ErrorMessage);
+                {
+                    errMsg += $"\n{result.ErrorMessage}";
+                }
+                MessageBox.Show(errMsg);
             }
             else
             {
+                await OrderDB.Add(newOrder, orderContext);
                 MessageBox.Show("Order Added");
             }
-
-            await OrderDB.Add(newOrder, orderContext);
         }
     }
 }
