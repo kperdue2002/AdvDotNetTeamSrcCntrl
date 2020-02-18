@@ -54,5 +54,11 @@ namespace Burg_s_Burgers
                 MessageBox.Show("Order Added");
             }
         }
+        private async Task<int> GetMaxPage(int PageSize)
+        {
+            int numProducts = await OrderDB.GetNumOrders(orderContext);
+            return Convert.ToInt32(
+                   Math.Ceiling((double)numProducts / PageSize));
+        }
     }
 }
