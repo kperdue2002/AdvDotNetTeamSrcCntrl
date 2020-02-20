@@ -89,5 +89,28 @@ namespace Burg_s_Burgers
         [Required]
         [Column(TypeName = "bit")]
         public bool IsDelivered { get; set; }
+
+        /*
+        public Order()
+        {
+        }
+
+        public Order(string firstName, string lastName, string address,
+                     string city, string state, string zipCode,
+                     string phoneNumber, byte quantity, string specialDirections, 
+                     DateTime dateOfOrder, bool isDelivered)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Address = address;
+            City = city;
+            State = state;
+            ZipCode = zipCode;
+            PhoneNumber = phoneNumber;
+            Quantity = quantity;
+            SpecialDirections = specialDirections;
+            DateOfOrder = dateOfOrder;
+            IsDelivered = isDelivered;
+        }*/
     }
 }

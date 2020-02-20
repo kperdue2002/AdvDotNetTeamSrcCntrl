@@ -12,9 +12,17 @@ namespace Burg_s_Burgers
 {
     public partial class Form_ShowOrders : Form
     {
+        public int PageNum { get; set; }
+        public Form_ShowOrders(int PageNum)
+        {
+            this.PageNum = PageNum;
+        }
+
         public Form_ShowOrders()
         {
+            PageNum = 1;
             InitializeComponent();
+            OrderController.ShowPage(this);
         }
     }
 }

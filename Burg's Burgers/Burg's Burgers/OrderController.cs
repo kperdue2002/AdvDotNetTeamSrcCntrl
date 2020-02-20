@@ -60,5 +60,29 @@ namespace Burg_s_Burgers
             return Convert.ToInt32(
                    Math.Ceiling((double)numProducts / PageSize));
         }
+        public static void ShowPage(Form_ShowOrders displayForm)
+        {
+            const byte pageSize = 14;
+            List<Order> pageOrders = 
+                OrderDB.GetOrdersByPage(displayForm.PageNum, pageSize, orderContext);
+            foreach (Order orderItem in pageOrders)
+            {
+                var orderRow = new DataGridViewRow();
+                orderRow.Cells[0].Value = orderItem.OrderID;
+                orderRow.Cells[1].Value = orderItem.FirstName;
+                orderRow.Cells[2].Value = orderItem.LastName;
+                orderRow.Cells[3].Value = orderItem.Address;
+                orderRow.Cells[4].Value = orderItem.City;
+                orderRow.Cells[5].Value = orderItem.State;
+                orderRow.Cells[6].Value = orderItem.ZipCode;
+                orderRow.Cells[7].Value = orderItem.PhoneNumber;
+                orderRow.Cells[8].Value = orderItem.Quantity;
+                orderRow.Cells[9].Value = orderItem.SpecialDirections;
+                orderRow.Cells[10].Value = orderItem.SpecialDirections;
+                orderRow.Cells[11].Value = orderItem.DateOfOrder;
+                orderRow.Cells[12].Value = orderItem.IsDelivered;
+                displayForm.dGridOrderDisplay.Rows.Add();
+            }
+        }
     }
 }

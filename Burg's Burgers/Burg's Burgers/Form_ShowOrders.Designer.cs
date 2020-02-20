@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dGridOrderDisplay = new System.Windows.Forms.DataGridView();
             this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,13 +45,13 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridOrderDisplay)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dGridOrderDisplay
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGridOrderDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridOrderDisplay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderID,
             this.FirstName,
             this.LastName,
@@ -64,10 +64,10 @@
             this.SpecialDirections,
             this.DateOfOrder,
             this.IsDelivered});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(881, 367);
-            this.dataGridView1.TabIndex = 0;
+            this.dGridOrderDisplay.Location = new System.Drawing.Point(12, 12);
+            this.dGridOrderDisplay.Name = "dGridOrderDisplay";
+            this.dGridOrderDisplay.Size = new System.Drawing.Size(881, 360);
+            this.dGridOrderDisplay.TabIndex = 0;
             // 
             // OrderID
             // 
@@ -188,17 +188,15 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dGridOrderDisplay);
             this.Name = "Form_ShowOrders";
             this.Text = "Show Orders";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridOrderDisplay)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
@@ -215,5 +213,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
+        public System.Windows.Forms.DataGridView dGridOrderDisplay;
     }
 }
