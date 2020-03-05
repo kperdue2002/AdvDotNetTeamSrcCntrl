@@ -19,40 +19,55 @@ namespace Burg_s_Burgers
 
         private void BtnPlaceOrder_Click(object sender, EventArgs e)
         {
-            int numPopulated = 0;
-            foreach(Control c in Controls)
+            bool OrderHasEmptyTextbox = false;
+            
+            foreach(Control c in gBoxPlaceOrder.Controls)
             {
-                if (c is TextBox)
+                if (c is TextBox) //c is the group box for some reason.
                 {
                     TextBox currField = c as TextBox;
-                    if (!string.IsNullOrEmpty(currField.Text))
+                    if (string.IsNullOrEmpty(currField.Text))
                     {
-                        numPopulated++;
+                        OrderHasEmptyTextbox = true;
                     }
                 }
             }
-            if (numPopulated >= 6)
+            if (numUpDwnBurgers.Value > 0)
             {
-                Order newOrder = new Order
+                if (!OrderHasEmptyTextbox)
                 {
-                    FirstName = tBoxFname.Text,
-                    LastName = tBoxLname.Text,
-                    Address = tBoxAddress.Text,
-                    City = tBoxCity.Text,
-                    State = cBoxState.Text,
-                    ZipCode = tBoxZip.Text,
-                    PhoneNumber = tBoxPhone.Text,
-                    Quantity = Convert.ToByte(numUpDwnBurgers.Value),
-                    SpecialDirections = txtBoxInstruct.Text,
-                    DateOfOrder = DateTime.Now
-                };
+                    //if all the textboxes are filled, check the combo box
+                    Order newOrder = new Order
+                    {
+                        FirstName = tBoxFname.Text,
+                        LastName = tBoxLname.Text,
+                        Address = tBoxAddress.Text,
+                        City = tBoxCity.Text,
+                        State = cBoxState.Text,
+                        ZipCode = tBoxZip.Text,
+                        PhoneNumber = tBoxPhone.Text,
+                        Quantity = Convert.ToByte(numUpDwnBurgers.Value),
+                        SpecialDirections = txtBoxInstruct.Text,
+                        DateOfOrder = DateTime.Now
+                    };
 
-                MessageBox.Show("Order Added");
+                    MessageBox.Show("Order Added");
+                }
+                else
+                {
+                    MessageBox.Show("All required boxes must be populated.");
+                }
             }
             else
             {
-                throw new Exception("All required fields must be populated.");
+                MessageBox.Show("Please select the number of Burgers to order.");
             }
+            
+        }
+
+        private void lblInstruc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

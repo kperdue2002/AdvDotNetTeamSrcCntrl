@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gBoxPlaceOrder = new System.Windows.Forms.GroupBox();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblInstruc = new System.Windows.Forms.Label();
-            this.txtBoxInstruct = new System.Windows.Forms.TextBox();
             this.lblZipcode = new System.Windows.Forms.Label();
             this.tBoxZip = new System.Windows.Forms.TextBox();
-            this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.lblBurger = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblState = new System.Windows.Forms.Label();
@@ -49,39 +47,38 @@
             this.tBoxCity = new System.Windows.Forms.TextBox();
             this.tBoxLname = new System.Windows.Forms.TextBox();
             this.tBoxFname = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.txtBoxInstruct = new System.Windows.Forms.TextBox();
+            this.btnPlaceOrder = new System.Windows.Forms.Button();
+            this.gBoxPlaceOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnBurgers)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gBoxPlaceOrder
             // 
-            this.groupBox1.Controls.Add(this.pBoxLogo);
-            this.groupBox1.Controls.Add(this.lblInstruc);
-            this.groupBox1.Controls.Add(this.txtBoxInstruct);
-            this.groupBox1.Controls.Add(this.lblZipcode);
-            this.groupBox1.Controls.Add(this.tBoxZip);
-            this.groupBox1.Controls.Add(this.btnPlaceOrder);
-            this.groupBox1.Controls.Add(this.lblBurger);
-            this.groupBox1.Controls.Add(this.lblPhone);
-            this.groupBox1.Controls.Add(this.lblState);
-            this.groupBox1.Controls.Add(this.lblCity);
-            this.groupBox1.Controls.Add(this.lblAddress);
-            this.groupBox1.Controls.Add(this.lblLname);
-            this.groupBox1.Controls.Add(this.lblFname);
-            this.groupBox1.Controls.Add(this.numUpDwnBurgers);
-            this.groupBox1.Controls.Add(this.cBoxState);
-            this.groupBox1.Controls.Add(this.tBoxPhone);
-            this.groupBox1.Controls.Add(this.tBoxAddress);
-            this.groupBox1.Controls.Add(this.tBoxCity);
-            this.groupBox1.Controls.Add(this.tBoxLname);
-            this.groupBox1.Controls.Add(this.tBoxFname);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 333);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Place Order";
+            this.gBoxPlaceOrder.Controls.Add(this.pBoxLogo);
+            this.gBoxPlaceOrder.Controls.Add(this.lblZipcode);
+            this.gBoxPlaceOrder.Controls.Add(this.tBoxZip);
+            this.gBoxPlaceOrder.Controls.Add(this.lblBurger);
+            this.gBoxPlaceOrder.Controls.Add(this.lblPhone);
+            this.gBoxPlaceOrder.Controls.Add(this.lblState);
+            this.gBoxPlaceOrder.Controls.Add(this.lblCity);
+            this.gBoxPlaceOrder.Controls.Add(this.lblAddress);
+            this.gBoxPlaceOrder.Controls.Add(this.lblLname);
+            this.gBoxPlaceOrder.Controls.Add(this.lblFname);
+            this.gBoxPlaceOrder.Controls.Add(this.numUpDwnBurgers);
+            this.gBoxPlaceOrder.Controls.Add(this.cBoxState);
+            this.gBoxPlaceOrder.Controls.Add(this.tBoxPhone);
+            this.gBoxPlaceOrder.Controls.Add(this.tBoxAddress);
+            this.gBoxPlaceOrder.Controls.Add(this.tBoxCity);
+            this.gBoxPlaceOrder.Controls.Add(this.tBoxLname);
+            this.gBoxPlaceOrder.Controls.Add(this.tBoxFname);
+            this.gBoxPlaceOrder.Location = new System.Drawing.Point(12, 12);
+            this.gBoxPlaceOrder.Name = "gBoxPlaceOrder";
+            this.gBoxPlaceOrder.Size = new System.Drawing.Size(445, 234);
+            this.gBoxPlaceOrder.TabIndex = 0;
+            this.gBoxPlaceOrder.TabStop = false;
+            this.gBoxPlaceOrder.Text = "Place Order";
             // 
             // pBoxLogo
             // 
@@ -96,21 +93,12 @@
             // lblInstruc
             // 
             this.lblInstruc.AutoSize = true;
-            this.lblInstruc.Location = new System.Drawing.Point(151, 244);
+            this.lblInstruc.Location = new System.Drawing.Point(169, 252);
             this.lblInstruc.Name = "lblInstruc";
             this.lblInstruc.Size = new System.Drawing.Size(99, 13);
             this.lblInstruc.TabIndex = 19;
             this.lblInstruc.Text = "Special Instructions";
-            // 
-            // txtBoxInstruct
-            // 
-            this.txtBoxInstruct.Location = new System.Drawing.Point(256, 229);
-            this.txtBoxInstruct.MaxLength = 512;
-            this.txtBoxInstruct.Multiline = true;
-            this.txtBoxInstruct.Name = "txtBoxInstruct";
-            this.txtBoxInstruct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxInstruct.Size = new System.Drawing.Size(183, 46);
-            this.txtBoxInstruct.TabIndex = 18;
+            this.lblInstruc.Click += new System.EventHandler(this.lblInstruc_Click);
             // 
             // lblZipcode
             // 
@@ -128,16 +116,6 @@
             this.tBoxZip.Name = "tBoxZip";
             this.tBoxZip.Size = new System.Drawing.Size(120, 20);
             this.tBoxZip.TabIndex = 16;
-            // 
-            // btnPlaceOrder
-            // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(300, 281);
-            this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(139, 46);
-            this.btnPlaceOrder.TabIndex = 15;
-            this.btnPlaceOrder.Text = "Place Order";
-            this.btnPlaceOrder.UseVisualStyleBackColor = true;
-            this.btnPlaceOrder.Click += new System.EventHandler(this.BtnPlaceOrder_Click);
             // 
             // lblBurger
             // 
@@ -309,25 +287,49 @@
             this.tBoxFname.Size = new System.Drawing.Size(121, 20);
             this.tBoxFname.TabIndex = 0;
             // 
+            // txtBoxInstruct
+            // 
+            this.txtBoxInstruct.Location = new System.Drawing.Point(274, 249);
+            this.txtBoxInstruct.MaxLength = 512;
+            this.txtBoxInstruct.Multiline = true;
+            this.txtBoxInstruct.Name = "txtBoxInstruct";
+            this.txtBoxInstruct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBoxInstruct.Size = new System.Drawing.Size(183, 46);
+            this.txtBoxInstruct.TabIndex = 18;
+            // 
+            // btnPlaceOrder
+            // 
+            this.btnPlaceOrder.Location = new System.Drawing.Point(318, 301);
+            this.btnPlaceOrder.Name = "btnPlaceOrder";
+            this.btnPlaceOrder.Size = new System.Drawing.Size(139, 46);
+            this.btnPlaceOrder.TabIndex = 15;
+            this.btnPlaceOrder.Text = "Place Order";
+            this.btnPlaceOrder.UseVisualStyleBackColor = true;
+            this.btnPlaceOrder.Click += new System.EventHandler(this.BtnPlaceOrder_Click);
+            // 
             // Form_PlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 353);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(461, 350);
+            this.Controls.Add(this.gBoxPlaceOrder);
+            this.Controls.Add(this.lblInstruc);
+            this.Controls.Add(this.txtBoxInstruct);
+            this.Controls.Add(this.btnPlaceOrder);
             this.Name = "Form_PlaceOrder";
             this.Text = "Place Order";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gBoxPlaceOrder.ResumeLayout(false);
+            this.gBoxPlaceOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnBurgers)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gBoxPlaceOrder;
         private System.Windows.Forms.NumericUpDown numUpDwnBurgers;
         private System.Windows.Forms.ComboBox cBoxState;
         private System.Windows.Forms.TextBox tBoxPhone;
