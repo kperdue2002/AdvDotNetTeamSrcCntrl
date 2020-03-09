@@ -30,7 +30,6 @@
         {
             this.gBoxPlaceOrder = new System.Windows.Forms.GroupBox();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
-            this.lblInstruc = new System.Windows.Forms.Label();
             this.lblZipcode = new System.Windows.Forms.Label();
             this.tBoxZip = new System.Windows.Forms.TextBox();
             this.lblBurger = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.tBoxCity = new System.Windows.Forms.TextBox();
             this.tBoxLname = new System.Windows.Forms.TextBox();
             this.tBoxFname = new System.Windows.Forms.TextBox();
+            this.lblInstruc = new System.Windows.Forms.Label();
             this.txtBoxInstruct = new System.Windows.Forms.TextBox();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.gBoxPlaceOrder.SuspendLayout();
@@ -90,16 +90,6 @@
             this.pBoxLogo.TabIndex = 20;
             this.pBoxLogo.TabStop = false;
             // 
-            // lblInstruc
-            // 
-            this.lblInstruc.AutoSize = true;
-            this.lblInstruc.Location = new System.Drawing.Point(169, 252);
-            this.lblInstruc.Name = "lblInstruc";
-            this.lblInstruc.Size = new System.Drawing.Size(99, 13);
-            this.lblInstruc.TabIndex = 19;
-            this.lblInstruc.Text = "Special Instructions";
-            this.lblInstruc.Click += new System.EventHandler(this.lblInstruc_Click);
-            // 
             // lblZipcode
             // 
             this.lblZipcode.AutoSize = true;
@@ -115,7 +105,7 @@
             this.tBoxZip.Location = new System.Drawing.Point(318, 125);
             this.tBoxZip.Name = "tBoxZip";
             this.tBoxZip.Size = new System.Drawing.Size(120, 20);
-            this.tBoxZip.TabIndex = 16;
+            this.tBoxZip.TabIndex = 5;
             // 
             // lblBurger
             // 
@@ -189,12 +179,13 @@
             0,
             0});
             this.numUpDwnBurgers.Name = "numUpDwnBurgers";
+            this.numUpDwnBurgers.ReadOnly = true;
             this.numUpDwnBurgers.Size = new System.Drawing.Size(121, 20);
-            this.numUpDwnBurgers.TabIndex = 7;
+            this.numUpDwnBurgers.TabIndex = 1;
             // 
             // cBoxState
             // 
-            this.cBoxState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cBoxState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxState.FormattingEnabled = true;
             this.cBoxState.Items.AddRange(new object[] {
             "Alabama",
@@ -250,14 +241,15 @@
             this.cBoxState.Location = new System.Drawing.Point(318, 176);
             this.cBoxState.Name = "cBoxState";
             this.cBoxState.Size = new System.Drawing.Size(121, 21);
-            this.cBoxState.TabIndex = 6;
+            this.cBoxState.Sorted = true;
+            this.cBoxState.TabIndex = 7;
             // 
             // tBoxPhone
             // 
             this.tBoxPhone.Location = new System.Drawing.Point(318, 203);
             this.tBoxPhone.Name = "tBoxPhone";
             this.tBoxPhone.Size = new System.Drawing.Size(121, 20);
-            this.tBoxPhone.TabIndex = 5;
+            this.tBoxPhone.TabIndex = 8;
             // 
             // tBoxAddress
             // 
@@ -271,21 +263,31 @@
             this.tBoxCity.Location = new System.Drawing.Point(318, 151);
             this.tBoxCity.Name = "tBoxCity";
             this.tBoxCity.Size = new System.Drawing.Size(120, 20);
-            this.tBoxCity.TabIndex = 3;
+            this.tBoxCity.TabIndex = 6;
             // 
             // tBoxLname
             // 
             this.tBoxLname.Location = new System.Drawing.Point(318, 73);
             this.tBoxLname.Name = "tBoxLname";
             this.tBoxLname.Size = new System.Drawing.Size(121, 20);
-            this.tBoxLname.TabIndex = 1;
+            this.tBoxLname.TabIndex = 3;
             // 
             // tBoxFname
             // 
             this.tBoxFname.Location = new System.Drawing.Point(318, 46);
             this.tBoxFname.Name = "tBoxFname";
             this.tBoxFname.Size = new System.Drawing.Size(121, 20);
-            this.tBoxFname.TabIndex = 0;
+            this.tBoxFname.TabIndex = 2;
+            // 
+            // lblInstruc
+            // 
+            this.lblInstruc.AutoSize = true;
+            this.lblInstruc.Location = new System.Drawing.Point(169, 252);
+            this.lblInstruc.Name = "lblInstruc";
+            this.lblInstruc.Size = new System.Drawing.Size(99, 13);
+            this.lblInstruc.TabIndex = 19;
+            this.lblInstruc.Text = "Special Instructions";
+            this.lblInstruc.Click += new System.EventHandler(this.lblInstruc_Click);
             // 
             // txtBoxInstruct
             // 
@@ -295,14 +297,14 @@
             this.txtBoxInstruct.Name = "txtBoxInstruct";
             this.txtBoxInstruct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBoxInstruct.Size = new System.Drawing.Size(183, 46);
-            this.txtBoxInstruct.TabIndex = 18;
+            this.txtBoxInstruct.TabIndex = 9;
             // 
             // btnPlaceOrder
             // 
             this.btnPlaceOrder.Location = new System.Drawing.Point(318, 301);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(139, 46);
-            this.btnPlaceOrder.TabIndex = 15;
+            this.btnPlaceOrder.TabIndex = 10;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
             this.btnPlaceOrder.Click += new System.EventHandler(this.BtnPlaceOrder_Click);
