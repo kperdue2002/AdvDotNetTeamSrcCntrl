@@ -23,7 +23,7 @@ namespace Burg_s_Burgers
         /// Returns all of the Order items.
         /// </summary>
         /// <param name="orderContext">DB Context</param>
-        private static async Task<List<Order>> GetAllOrders(OrderContext orderContext)
+        public static async Task<List<Order>> GetAllOrders(OrderContext orderContext)
         {
             return await
             (
@@ -39,19 +39,19 @@ namespace Burg_s_Burgers
         /// <param name="pageNum">Which page is being looked at.</param>
         /// <param name="pageSize">The number of orders per page.</param>
         /// <param name="orderContext">DB Context</param>
-        public static List<Order> GetOrdersByPage(
+        public static async Task<List<Order>> GetOrdersByPage(
                            int pageNum, byte pageSize, OrderContext orderContext)
         {
             const int PageOffset = 1;
 
-            return
+            return await
             (
                 from o in orderContext.Orders
                 orderby o.OrderID descending
                 select o
             ).Skip(pageSize * (pageNum - PageOffset))
              .Take(pageSize)
-             .ToList();
+             .ToListAsync();
         }
 
         /// <summary>

@@ -60,10 +60,10 @@ namespace Burg_s_Burgers
             return Convert.ToInt32(
                    Math.Ceiling((double)numProducts / PageSize));
         }
-        public static void ShowPage(Form_ShowOrders displayForm)
+        public static async Task ShowPage(Form_ShowOrders displayForm)
         {
             const byte pageSize = 14;
-            List<Order> pageOrders = 
+            List<Order> pageOrders = await
                 OrderDB.GetOrdersByPage(displayForm.PageNum, pageSize, orderContext);
             foreach (Order orderItem in pageOrders)
             {
