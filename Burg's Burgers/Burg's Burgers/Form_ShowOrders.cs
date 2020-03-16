@@ -22,6 +22,7 @@ namespace Burg_s_Burgers
         {
             PageNum = 1;
             InitializeComponent();
+            //OrderController.ShowPage(this).GetAwaiter().GetResult();
             OrderController.ShowPage(this);
         }
     }

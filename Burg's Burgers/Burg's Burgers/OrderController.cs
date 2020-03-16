@@ -60,29 +60,45 @@ namespace Burg_s_Burgers
             return Convert.ToInt32(
                    Math.Ceiling((double)numProducts / PageSize));
         }
+        
         public static void ShowPage(Form_ShowOrders displayForm)
         {
-            const byte pageSize = 14;
-            List<Order> pageOrders = 
-                OrderDB.GetOrdersByPage(displayForm.PageNum, pageSize, orderContext);
+            //const byte pageSize = 14;
+
+            List<Order> pageOrders =
+                //OrderDB.GetOrdersByPageWorkaround(displayForm.PageNum, pageSize, orderContext);
+                OrderDB.GetAllOrders(orderContext);
+
+            //List<Order> pageOrders = await
+            //    OrderDB.GetOrdersByPage(displayForm.PageNum, pageSize, orderContext);
             foreach (Order orderItem in pageOrders)
             {
                 var orderRow = new DataGridViewRow();
-                orderRow.Cells[0].Value = orderItem.OrderID;
-                orderRow.Cells[1].Value = orderItem.FirstName;
-                orderRow.Cells[2].Value = orderItem.LastName;
-                orderRow.Cells[3].Value = orderItem.Address;
-                orderRow.Cells[4].Value = orderItem.City;
-                orderRow.Cells[5].Value = orderItem.State;
-                orderRow.Cells[6].Value = orderItem.ZipCode;
-                orderRow.Cells[7].Value = orderItem.PhoneNumber;
-                orderRow.Cells[8].Value = orderItem.Quantity;
-                orderRow.Cells[9].Value = orderItem.SpecialDirections;
-                orderRow.Cells[10].Value = orderItem.SpecialDirections;
-                orderRow.Cells[11].Value = orderItem.DateOfOrder;
-                orderRow.Cells[12].Value = orderItem.IsDelivered;
-                displayForm.dGridOrderDisplay.Rows.Add();
+                DataGridViewCell[] orderCells = new DataGridViewCell[12];
+
+                orderCells[0] = ToGridCell_TextBox(orderItem.OrderID);
+                orderCells[1] = ToGridCell_TextBox(orderItem.FirstName);
+                orderCells[2] = ToGridCell_TextBox(orderItem.LastName);
+                orderCells[3] = ToGridCell_TextBox(orderItem.Address);
+                orderCells[4] = ToGridCell_TextBox(orderItem.City);
+                orderCells[5] = ToGridCell_TextBox(orderItem.State);
+                orderCells[6] = ToGridCell_TextBox(orderItem.ZipCode);
+                orderCells[7] = ToGridCell_TextBox(orderItem.PhoneNumber);
+                orderCells[8] = ToGridCell_TextBox(orderItem.Quantity);
+                orderCells[9] = ToGridCell_TextBox(orderItem.SpecialDirections);
+                orderCells[10] = ToGridCell_TextBox(orderItem.DateOfOrder);
+                orderCells[11] = ToGridCell_TextBox(orderItem.IsDelivered);
+                
+                orderRow.Cells.AddRange(orderCells);
+
+                displayForm.dGridOrderDisplay.Rows.Add(orderRow);
             }
+        }
+        private static DataGridViewCell ToGridCell_TextBox(Object obj)
+        {
+            DataGridViewCell cell = new DataGridViewTextBoxCell();
+            cell.Value = obj.ToString();
+            return cell;
         }
     }
 }
