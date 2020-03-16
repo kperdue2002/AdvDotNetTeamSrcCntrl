@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,50 @@ namespace Burg_s_Burgers
         /// Returns all of the Order items.
         /// </summary>
         /// <param name="orderContext">DB Context</param>
-        public static async Task<List<Order>> GetAllOrders(OrderContext orderContext)
+        public static List<Order> GetAllOrders(OrderContext orderContext)
         {
-            return await
-            (
+            using (SqlConnection con = orderContext.Database.Connection as SqlConnection)
+            {
+                con.Open();
+                SqlCommand getCommand = new SqlCommand
+                {
+                    Connection = con,
+                    CommandText = "SELECT *"
+                                + "FROM Orders"
+                };
+                SqlDataReader reader = getCommand.ExecuteReader();
+                var result = new List<Order>();
+                while (reader.Read())
+                {
+                    Order item = new Order()
+                    {
+                        OrderID = (int)reader[0],
+                        FirstName = reader["FirstName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        Address = reader["Address"].ToString(),
+                        City = reader["City"].ToString(),
+                        State = reader["State"].ToString(),
+                        ZipCode = reader["ZipCode"].ToString(),
+                        PhoneNumber = reader["PhoneNumber"].ToString(),
+                        Quantity = (byte)reader["Quantity"],
+                        SpecialDirections = reader["SpecialDirections"].ToString(),
+                        DateOfOrder = (DateTime)reader["DateOfOrder"],
+                        IsDelivered = (bool)reader["IsDelivered"]
+                    };
+                    result.Add(item);
+                }
+                con.Close();
+                return result;
+            }
+
+
+            //return await
+            /*(
                 from o in orderContext.Orders
                 orderby o.OrderID descending
                 select o
             ).ToListAsync();
+            */
         }
 
         /// <summary>
@@ -43,15 +80,15 @@ namespace Burg_s_Burgers
                            int pageNum, byte pageSize, OrderContext orderContext)
         {
             const int PageOffset = 1;
+            //orderContext.Orders
 
-            return await
-            (
-                from o in orderContext.Orders
-                orderby o.OrderID descending
-                select o
-            ).Skip(pageSize * (pageNum - PageOffset))
-             .Take(pageSize)
-             .ToListAsync();
+            IOrderedQueryable<Order> query = from o in orderContext.Orders
+                                             orderby o.OrderID descending
+                                             select o;
+
+            return await query.Skip(pageSize * (pageNum - PageOffset))
+                              .Take(pageSize)
+                              .ToListAsync();
         }
 
         /// <summary>
@@ -68,6 +105,13 @@ namespace Burg_s_Burgers
                 select o
             ).SingleOrDefaultAsync();
         }
+
+        /*
+        public static Task<List<Order>> GetOrdersByPageWorkaround(int pageNum, byte pageSize, OrderContext orderContext)
+        {
+            SqlConnection con = orderContext.Database.SqlQuery.
+        }
+        */
 
         /// <summary>
         /// Adds/manipulates a new order in the database depending on the input.
