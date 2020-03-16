@@ -145,6 +145,7 @@
             // 
             // btnPrev
             // 
+            this.btnPrev.Enabled = false;
             this.btnPrev.Location = new System.Drawing.Point(12, 385);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(91, 53);
@@ -154,6 +155,7 @@
             // 
             // btnNext
             // 
+            this.btnNext.Enabled = false;
             this.btnNext.Location = new System.Drawing.Point(802, 385);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(91, 53);
