@@ -20,13 +20,13 @@ namespace Burg_s_Burgers
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
             Form_PlaceOrder PlaceOrder = new Form_PlaceOrder();
-            PlaceOrder.Show();
+            PlaceOrder.ShowDialog();
         }
 
         private void BtnShowOrders_Click(object sender, EventArgs e)
         {
             Form_ShowOrders ShowOrders = new Form_ShowOrders();
-            ShowOrders.Show();
+            ShowOrders.ShowDialog();
         }
     }
 }
