@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
@@ -26,40 +27,25 @@ namespace Burg_s_Burgers
         /// <param name="orderContext">DB Context</param>
         public static List<Order> GetAllOrders(OrderContext orderContext)
         {
-            using (SqlConnection con = orderContext.Database.Connection as SqlConnection)
+            using (SqlConnection con = GetConnection())
             {
                 con.Open();
                 SqlCommand getCommand = new SqlCommand
                 {
                     Connection = con,
-                    CommandText = "SELECT *"
+                    CommandText = "SELECT * "
                                 + "FROM Orders"
                 };
                 SqlDataReader reader = getCommand.ExecuteReader();
                 var result = new List<Order>();
                 while (reader.Read())
                 {
-                    Order item = new Order()
-                    {
-                        OrderID = (int)reader[0],
-                        FirstName = reader["FirstName"].ToString(),
-                        LastName = reader["LastName"].ToString(),
-                        Address = reader["Address"].ToString(),
-                        City = reader["City"].ToString(),
-                        State = reader["State"].ToString(),
-                        ZipCode = reader["ZipCode"].ToString(),
-                        PhoneNumber = reader["PhoneNumber"].ToString(),
-                        Quantity = (byte)reader["Quantity"],
-                        SpecialDirections = reader["SpecialDirections"].ToString(),
-                        DateOfOrder = (DateTime)reader["DateOfOrder"],
-                        IsDelivered = (bool)reader["IsDelivered"]
-                    };
-                    result.Add(item);
+                    result.Add(ReaderToOrder(reader));
                 }
+                //reader.Close();
                 con.Close();
                 return result;
             }
-
 
             //return await
             /*(
@@ -68,6 +54,31 @@ namespace Burg_s_Burgers
                 select o
             ).ToListAsync();
             */
+        }
+
+        private static SqlConnection GetConnection()
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["OrderContext"].ConnectionString;
+            return new SqlConnection(conStr);
+        }
+
+        private static Order ReaderToOrder(SqlDataReader reader)
+        {
+            return new Order()
+            {
+                OrderID = (int)reader[0],
+                FirstName = reader["FirstName"].ToString(),
+                LastName = reader["LastName"].ToString(),
+                Address = reader["Address"].ToString(),
+                City = reader["City"].ToString(),
+                State = reader["State"].ToString(),
+                ZipCode = reader["ZipCode"].ToString(),
+                PhoneNumber = reader["PhoneNumber"].ToString(),
+                Quantity = (byte)reader["Quantity"],
+                SpecialDirections = reader["SpecialDirections"].ToString(),
+                DateOfOrder = (DateTime)reader["DateOfOrder"],
+                IsDelivered = (bool)reader["IsDelivered"]
+            };
         }
 
         /// <summary>
@@ -97,13 +108,41 @@ namespace Burg_s_Burgers
         /// </summary>
         /// <param name="id">the OrderID</param>
         /// <param name="orderContext">DB Context</param>
-        public static async Task<Order> GetOrderbyID(int id, OrderContext orderContext)
+        public static Order GetOrderbyID(int id, OrderContext orderContext)
         {
+            using (SqlConnection con = GetConnection())
+            {
+                con.Open();
+                SqlCommand getCommand = new SqlCommand
+                {
+                    Connection = con,
+                    CommandText = "SELECT * "
+                                + "FROM Orders "
+                                + "WHERE OrderID = @OrderID"
+                };
+                SqlParameter OrderID = new SqlParameter
+                {
+                    ParameterName = "@OrderID",
+                    Value = id
+                };
+
+                getCommand.Parameters.Add(OrderID);
+
+                SqlDataReader reader = getCommand.ExecuteReader();
+                reader.Read();
+                Order result = ReaderToOrder(reader);
+                //reader.Close();
+                con.Close();
+                return result;
+            }
+
+            /*
             return await (
                 from o in orderContext.Orders
                 where o.OrderID == id
                 select o
             ).SingleOrDefaultAsync();
+            */
         }
 
         /*
