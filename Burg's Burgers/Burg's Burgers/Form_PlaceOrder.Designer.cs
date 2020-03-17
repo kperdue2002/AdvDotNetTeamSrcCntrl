@@ -377,6 +377,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form_PlaceOrder";
             this.Text = "Place Order";
+            this.Load += new System.EventHandler(this.Form_PlaceOrder_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
@@ -388,13 +389,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numUpDwnBurgers;
-        private System.Windows.Forms.ComboBox cBoxState;
-        private System.Windows.Forms.TextBox tBoxPhone;
-        private System.Windows.Forms.TextBox tBoxAddress;
-        private System.Windows.Forms.TextBox tBoxCity;
-        private System.Windows.Forms.TextBox tBoxLname;
-        private System.Windows.Forms.TextBox tBoxFname;
         private System.Windows.Forms.Label lblBurger;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblState;
@@ -404,9 +398,7 @@
         private System.Windows.Forms.Label lblFname;
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.Label lblInstruc;
-        private System.Windows.Forms.TextBox txtBoxInstruct;
         private System.Windows.Forms.Label lblZipcode;
-        private System.Windows.Forms.TextBox tBoxZip;
         private System.Windows.Forms.PictureBox pBoxLogo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblStarZipcode;
@@ -416,5 +408,14 @@
         private System.Windows.Forms.Label lblStarAddress;
         private System.Windows.Forms.Label lblStarLName;
         private System.Windows.Forms.Label lblStarFName;
+        public System.Windows.Forms.NumericUpDown numUpDwnBurgers;
+        public System.Windows.Forms.ComboBox cBoxState;
+        public System.Windows.Forms.TextBox tBoxPhone;
+        public System.Windows.Forms.TextBox tBoxAddress;
+        public System.Windows.Forms.TextBox tBoxCity;
+        public System.Windows.Forms.TextBox tBoxLname;
+        public System.Windows.Forms.TextBox tBoxFname;
+        public System.Windows.Forms.TextBox txtBoxInstruct;
+        public System.Windows.Forms.TextBox tBoxZip;
     }
 }

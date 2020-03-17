@@ -12,15 +12,9 @@ namespace Burg_s_Burgers
 {
     public partial class Form_PlaceOrder : Form
     {
-        public TextBox TB_FIRST_NAME;
-        public TextBox TB_LAST_NAME;
-        public TextBox TB_ADDRESS;
-        public TextBox TB_CITY;
-        public ComboBox CB_STATE;
-        public TextBox TB_ZIP_CODE;
-        public TextBox TB_PHONE_NUMBER;
-        public NumericUpDown NUD_QUANTITY;
-        public TextBox TB_SPECIAL_DIRECTIONS;
+        public CheckBox chkBoxIsDelivered;
+        public bool IsEditing { get; set; }
+        public Order OrderToEdit { get; set; }
 
         private readonly string[,] StateNames = new string[,]
         {
@@ -53,17 +47,34 @@ namespace Burg_s_Burgers
         {
             InitializeComponent();
 
-            TB_FIRST_NAME = tBoxFname;
-            TB_LAST_NAME = tBoxLname;
-            TB_ADDRESS = tBoxAddress;
-            TB_CITY = tBoxCity;
-            CB_STATE = cBoxState;
-            TB_ZIP_CODE = tBoxZip;
-            TB_PHONE_NUMBER = tBoxPhone;
-            NUD_QUANTITY = numUpDwnBurgers;
-            TB_SPECIAL_DIRECTIONS = txtBoxInstruct;
-
             AddStates();
+        }
+
+        private void EditorSetup()
+        {
+            chkBoxIsDelivered = new CheckBox
+            {
+                AutoSize = true,
+                CheckAlign = ContentAlignment.MiddleRight,
+                Checked = OrderToEdit.IsDelivered,
+                Location = new Point(186, 296),
+                //Name = "chkBoxIsDelivered",
+                Size = new Size(97, 17),
+                //TabIndex = 29,
+                Text = "Delivery Status",
+                UseVisualStyleBackColor = true
+            };
+            groupBox1.Controls.Add(chkBoxIsDelivered);
+
+            tBoxFname.Text = OrderToEdit.FirstName;
+            tBoxLname.Text = OrderToEdit.LastName;
+            tBoxAddress.Text = OrderToEdit.Address;
+            tBoxCity.Text = OrderToEdit.City;
+            cBoxState.SelectedIndex = FindStateIndex(OrderToEdit.State);
+            tBoxZip.Text = OrderToEdit.ZipCode;
+            tBoxPhone.Text = OrderToEdit.PhoneNumber;
+            numUpDwnBurgers.Value = OrderToEdit.Quantity;
+            txtBoxInstruct.Text = OrderToEdit.SpecialDirections;
         }
 
         private void AddStates()
@@ -79,9 +90,31 @@ namespace Burg_s_Burgers
             }
         }
 
+        private int FindStateIndex(string state)
+        {
+            for (int i = 0; i < StateNames.GetLength(1); i++)
+            {
+                if (state == StateNames[1, i])
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
         private async void BtnPlaceOrder_Click(object sender, EventArgs e)
         {
-            await OrderController.Add(this);
+            Enabled = false;
+            await OrderController.Add(this, IsEditing, OrderToEdit);
+            Enabled = true;
+        }
+
+        private void Form_PlaceOrder_Load(object sender, EventArgs e)
+        {
+            if (IsEditing)
+            {
+                EditorSetup();
+            }
         }
     }
 }
