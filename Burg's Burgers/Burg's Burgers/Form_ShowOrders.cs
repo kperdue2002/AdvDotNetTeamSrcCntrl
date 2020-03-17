@@ -25,5 +25,26 @@ namespace Burg_s_Burgers
             //OrderController.ShowPage(this).GetAwaiter().GetResult();
             OrderController.ShowPage(this);
         }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            var selectedRow = dGridOrderDisplay.CurrentRow;
+            var selectedID = int.Parse(selectedRow.Cells[0].Value.ToString());
+
+            Form_PlaceOrder EditOrder = new Form_PlaceOrder
+            {
+                IsEditing = true,
+                OrderToEdit = OrderDB.GetOrderbyID(selectedID, OrderController.orderContext)
+            };
+            EditOrder.ShowDialog();
+            string[] RowReplacement = 
+                OrderController.ToStringArray(OrderDB.GetOrderbyID(selectedID, OrderController.orderContext));
+            dGridOrderDisplay.CurrentRow.SetValues(RowReplacement);
+        }
     }
 }
