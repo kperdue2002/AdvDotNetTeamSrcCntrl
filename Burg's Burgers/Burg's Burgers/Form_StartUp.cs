@@ -17,11 +17,16 @@ namespace Burg_s_Burgers
             InitializeComponent();
         }
 
-        readonly Form_PlaceOrder CreateOrder = new Form_PlaceOrder();
-        readonly Form_ShowOrders ShowOrders = new Form_ShowOrders();
+        private void BtnCreateOrder_Click(object sender, EventArgs e)
+        {
+            Form_PlaceOrder PlaceOrder = new Form_PlaceOrder();
+            PlaceOrder.ShowDialog();
+        }
 
-        private void BtnCreateOrder_Click(object sender, EventArgs e) => CreateOrder.Show();
-
-        private void BtnShowOrders_Click(object sender, EventArgs e) => ShowOrders.Show();
+        private void BtnShowOrders_Click(object sender, EventArgs e)
+        {
+            Form_ShowOrders ShowOrders = new Form_ShowOrders();
+            ShowOrders.ShowDialog();
+        }
     }
 }

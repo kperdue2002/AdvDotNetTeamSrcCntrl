@@ -7,13 +7,13 @@ namespace Burg_s_Burgers.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Order : IMigrationMetadata
+    public sealed partial class Test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Order));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Test));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001312229117_Order"; }
+            get { return "202002202051005_Test"; }
         }
         
         string IMigrationMetadata.Source

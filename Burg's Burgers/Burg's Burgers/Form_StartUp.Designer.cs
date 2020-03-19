@@ -75,7 +75,7 @@ namespace Burg_s_Burgers
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.BtnShowOrders_Click);
             // 
-            // Form1
+            // Form_StartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,7 +84,9 @@ namespace Burg_s_Burgers
             this.Controls.Add(this.btnCreateOrder);
             this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.pBoxLogo);
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "Form_StartUp";
             this.Text = "Burg\'s Burgers";
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             this.ResumeLayout(false);
