@@ -75,6 +75,10 @@ namespace Burg_s_Burgers
             tBoxPhone.Text = OrderToEdit.PhoneNumber;
             numUpDwnBurgers.Value = OrderToEdit.Quantity;
             txtBoxInstruct.Text = OrderToEdit.SpecialDirections;
+
+            btnPlaceOrder.Text = "Edit Order";
+            groupBox1.Text = "Edit Order";
+            Text = "Edit Order";
         }
 
         private void AddStates()
