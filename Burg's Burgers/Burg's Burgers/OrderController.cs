@@ -68,6 +68,41 @@ namespace Burg_s_Burgers
                 }
             }
         }
+
+        public static async Task Delete(Form_ShowOrders showForm)
+        {
+            var selectedRow = showForm.dGridOrderDisplay.CurrentRow;
+            var selectedID = int.Parse(selectedRow.Cells[0].Value.ToString());
+            var order = OrderDB.GetOrderbyID(selectedID, OrderController.orderContext);
+
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order #{selectedID}?",
+                                                        "Are you sure?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                showForm.Enabled = false;
+                await OrderDB.Delete(order, OrderController.orderContext);
+                showForm.Enabled = true;
+            }
+            showForm.dGridOrderDisplay.Rows.RemoveAt(selectedRow.Index);
+            MessageBox.Show($"Order #{selectedID} Deleted");
+        }
+
+        public static void Edit(Form_ShowOrders showForm)
+        {
+            var selectedRow = showForm.dGridOrderDisplay.CurrentRow;
+            var selectedID = int.Parse(selectedRow.Cells[0].Value.ToString());
+
+            Form_PlaceOrder EditOrder = new Form_PlaceOrder
+            {
+                IsEditing = true,
+                OrderToEdit = OrderDB.GetOrderbyID(selectedID, OrderController.orderContext)
+            };
+            EditOrder.ShowDialog();
+            string[] RowReplacement =
+                OrderController.ToStringArray(OrderDB.GetOrderbyID(selectedID, OrderController.orderContext));
+            showForm.dGridOrderDisplay.CurrentRow.SetValues(RowReplacement);
+        }
+
         private async Task<int> GetMaxPage(int PageSize)
         {
             int numProducts = await OrderDB.GetNumOrders(orderContext);
