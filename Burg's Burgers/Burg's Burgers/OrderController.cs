@@ -82,9 +82,9 @@ namespace Burg_s_Burgers
                 showForm.Enabled = false;
                 await OrderDB.Delete(order/*, orderContext*/);
                 showForm.Enabled = true;
+                MessageBox.Show($"Order #{selectedID} Deleted");
             }
             showForm.dGridOrderDisplay.Rows.RemoveAt(selectedRow.Index);
-            MessageBox.Show($"Order #{selectedID} Deleted");
         }
 
         public static void Edit(Form_ShowOrders showForm)
