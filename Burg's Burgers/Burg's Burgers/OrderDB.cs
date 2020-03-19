@@ -82,12 +82,13 @@ namespace Burg_s_Burgers
         }
 
         /// <summary>
+        /// CURRENTLY NONFUNCTIONAL
         /// Returns a page of Order items based upon the pageNum & pageSize values.
         /// </summary>
         /// <param name="pageNum">Which page is being looked at.</param>
         /// <param name="pageSize">The number of orders per page.</param>
         /// <param name="orderContext">DB Context</param>
-        public static async Task<List<Order>> GetOrdersByPage(
+        private static async Task<List<Order>> GetOrdersByPage(
                            int pageNum, byte pageSize, OrderContext orderContext)
         {
             const int PageOffset = 1;
