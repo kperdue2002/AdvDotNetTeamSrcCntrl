@@ -193,6 +193,8 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.dGridOrderDisplay);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form_ShowOrders";
             this.Text = "Show Orders";
             ((System.ComponentModel.ISupportInitialize)(this.dGridOrderDisplay)).EndInit();
