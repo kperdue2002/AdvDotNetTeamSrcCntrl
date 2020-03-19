@@ -25,7 +25,7 @@ namespace Burg_s_Burgers
         /// Returns all of the Order items.
         /// </summary>
         /// <param name="orderContext">DB Context</param>
-        public static List<Order> GetAllOrders(OrderContext orderContext)
+        public static List<Order> GetAllOrders(/*OrderContext orderContext*/)
         {
             using (SqlConnection con = GetConnection())
             {
@@ -108,7 +108,7 @@ namespace Burg_s_Burgers
         /// </summary>
         /// <param name="id">the OrderID</param>
         /// <param name="orderContext">DB Context</param>
-        public static Order GetOrderbyID(int id, OrderContext orderContext)
+        public static Order GetOrderbyID(int id/*, OrderContext orderContext*/)
         {
             using (SqlConnection con = GetConnection())
             {
@@ -185,9 +185,12 @@ namespace Burg_s_Burgers
         /// <param name="o">The order to be deleted</param>
         /// <param name="orderContext">DB Context</param>
         /// <returns></returns>
-        public static async Task<Order> Delete(Order o, OrderContext orderContext)
+        public static async Task<Order> Delete(Order o/*, OrderContext orderContext*/)
         {
-            return await OrderAction(o, orderContext, EntityState.Deleted);
+            // Kinda hacky, but it stops it from crashing 
+            // upon editing a recently edited order.
+            var context = new OrderContext();
+            return await OrderAction(o, context, EntityState.Deleted);
         }
 
         /// <summary>

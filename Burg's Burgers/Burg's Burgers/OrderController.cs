@@ -73,14 +73,14 @@ namespace Burg_s_Burgers
         {
             var selectedRow = showForm.dGridOrderDisplay.CurrentRow;
             var selectedID = int.Parse(selectedRow.Cells[0].Value.ToString());
-            var order = OrderDB.GetOrderbyID(selectedID, OrderController.orderContext);
+            var order = new Order { OrderID = selectedID };
 
             DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order #{selectedID}?",
                                                         "Are you sure?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 showForm.Enabled = false;
-                await OrderDB.Delete(order, OrderController.orderContext);
+                await OrderDB.Delete(order/*, orderContext*/);
                 showForm.Enabled = true;
             }
             showForm.dGridOrderDisplay.Rows.RemoveAt(selectedRow.Index);
@@ -95,11 +95,11 @@ namespace Burg_s_Burgers
             Form_PlaceOrder EditOrder = new Form_PlaceOrder
             {
                 IsEditing = true,
-                OrderToEdit = OrderDB.GetOrderbyID(selectedID, OrderController.orderContext)
+                OrderToEdit = OrderDB.GetOrderbyID(selectedID/*, orderContext*/)
             };
             EditOrder.ShowDialog();
             string[] RowReplacement =
-                OrderController.ToStringArray(OrderDB.GetOrderbyID(selectedID, OrderController.orderContext));
+                ToStringArray( OrderDB.GetOrderbyID(selectedID/*, orderContext*/) );
             showForm.dGridOrderDisplay.CurrentRow.SetValues(RowReplacement);
         }
 
@@ -116,7 +116,7 @@ namespace Burg_s_Burgers
 
             List<Order> pageOrders =
                 //OrderDB.GetOrdersByPageWorkaround(displayForm.PageNum, pageSize, orderContext);
-                OrderDB.GetAllOrders(orderContext);
+                OrderDB.GetAllOrders(/*orderContext*/);
 
             //List<Order> pageOrders = await
             //    OrderDB.GetOrdersByPage(displayForm.PageNum, pageSize, orderContext);
