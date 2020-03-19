@@ -26,9 +26,22 @@ namespace Burg_s_Burgers
             OrderController.ShowPage(this);
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private async void BtnDelete_Click(object sender, EventArgs e)
         {
+            var selectedRow = dGridOrderDisplay.CurrentRow;
+            var selectedID = int.Parse(selectedRow.Cells[0].Value.ToString());
+            var order = OrderDB.GetOrderbyID(selectedID, OrderController.orderContext);
 
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order #{selectedID}?", 
+                                                        "Are you sure?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Enabled = false;
+                await OrderDB.Delete(order, OrderController.orderContext);
+                Enabled = true;
+            }
+            dGridOrderDisplay.Rows.RemoveAt(selectedRow.Index);
+            MessageBox.Show($"Order #{selectedID} Deleted");
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
